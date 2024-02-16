@@ -15,6 +15,6 @@
   const { data: products } = await useFetch('https://fakestoreapi.com/products')
 
   useHead({
-    title: 'Blog Post - DT ENGINEERING'
+    title: 'Blog Post - Rekaforma'
   })
 </script>

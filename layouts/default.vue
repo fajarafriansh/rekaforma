@@ -1,22 +1,16 @@
 <template>
-  <header class="container mx-auto">
+  <header class="container absolute left-0 right-0 mx-auto">
     <LayoutsAppNavigation />
-    <LayoutsAppHeader />
   </header>
 
-  <main class="container mx-auto py-16">
+  <main class="container mx-auto">
     <slot />
   </main>
-
-  <LayoutsAppGalery />
+  
   <LayoutsAppFooter />
 </template>
 
 <style>
-  .router-link-exact-active {
-    color: #12b488;
-  }
-
   body {
     overflow-x: hidden;
     width: 100%;
