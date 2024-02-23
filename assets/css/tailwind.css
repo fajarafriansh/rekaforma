@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-base leading-normal tracking-wide antialiased box-border;
+  @apply box-border text-base antialiased leading-normal tracking-normal bg-white font-manrope text-[#707070];
 }
 
 *,
@@ -12,9 +12,23 @@ body {
   @apply box-border m-0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold
+}
+
+#footer a:hover,
+#footer .router-link-exact-active {
+  @apply text-white
+}
+
+.nav-link:hover,
+.nav-link .router-link-exact-active {
+  @apply text-black
+}
+
 @layer components {
   .btn {
-    @apply bg-blue-500 text-white  px-3 py-2 rounded-md text-sm;
+    @apply px-3 py-2 text-sm text-white bg-blue-500 rounded-md;
   }
 }
 
