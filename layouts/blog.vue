@@ -1,21 +1,23 @@
-<template>
-  <div>
-    <header>
-      <h1>This is blog layout</h1>
-    </header>
-  </div>
-  <div>
-    <slot />
-  </div>
+<script setup lang="ts">
+const head = useLocaleHead({
+  addSeoAttributes: true,
+})
 
-  <div>
-    <footer>
-      <nav>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/about">About</NuxtLink>
-        <NuxtLink to="/blog">Blog</NuxtLink>
-      </nav>
-      <h1>This is footer</h1>
-    </footer>
-  </div>
+const htmlAttrs = computed(() => head.value.htmlAttrs!)
+</script>
+
+<template>
+  <Html :lang="htmlAttrs.lang">
+    <Body>
+      <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#fcc175 0%,#fa9f42 50%,#f87f17 100%)" />
+      <LayoutsAppNavigation />
+    
+      <main class="relative min-h-[calc(100vh-var(--header-height))]">
+        <slot />
+      </main>
+    
+      <LayoutsAppFooter />
+      <!-- <ModalSearch /> -->
+    </Body>
+  </Html>
 </template>

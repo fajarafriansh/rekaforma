@@ -1,7 +1,5 @@
 <template>
-  <header class="container absolute left-0 right-0 mx-auto">
-    <LayoutsAppNavigation />
-  </header>
+  <LayoutsAppNavigation />
 
   <main class="relative">
     <slot />

@@ -1,85 +1,79 @@
+<script setup>
+import { ref } from 'vue'
+import { navigations } from '~/store/navigations'
+
+const localePath = useLocalePath()
+
+const contacts = ref([
+  { id: 1, contact: 'P: 1900 1088' },
+  { id: 1, contact: 'E: info@rekaforma.xyz' },
+  { id: 1, contact: 'A: Banda Aceh, IDN' }
+])
+</script>
+
 <template>
-  <footer id="footer" class="w-full pt-5 bg-[#272a30] text-[#ffffffb3]">
-    <div class="container mx-auto">
-      <div class="grid grid-cols-3 gap-x-6 footer-widget">
-        <div class="py-20">
-          <img class="h-12 logo" src="~/assets/logo.jpg" alt="">
-        </div>
-        <div class="col-span-2 py-20">
-          <div class="">
-            <div class="relative mb-12">
-              <form class="newsletter" action="">
-                <input type="email" name="email" placeholder="Enter your email to sign up newsletter" required class=" pb-5 leading-5 border-b-[1px] border-[#ffffff33] w-full bg-transparent focus:outline-none">
-                <button type="submit" class="absolute right-0 z-10 w-20 h-8 bottom-3 text-white border-[1px] border-[#ffffff33]"><Icon name="uil:arrow-right" size="24px" /></button>
-              </form>
+  <footer id="footer" class="relative">
+    <div class="border-t border-shark-100 dark:border-shark-900">
+      <div class="container py-8 mx-auto lg:py-12">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div class="grid-flow-col gap-8 flex-flex-col lg:grid auto-cols-fr xl:col-span-2">
+            <div>
+              <h3>Navigation</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li v-for="nav in navigations" :key="nav.id" class="cursor-pointer">
+                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                </li>
+              </ul>
             </div>
-            <div class="mb-12">
-              <h2 class="text-5xl leading-[56px] h2">
-                <a href="#" class="bg-[length:0_100%] hover:bg-[length:100%_100%] bg-no-repeat bg-gradient-to-b from-transparent from-90% via-[#fa9f42] via-90% to-[#fa9f42] text-white transition-all">Ready to move forward towards your dream?</a>
-              </h2>
+            <div>
+              <h3>Navigation</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li v-for="nav in navigations" :key="nav.id" class="cursor-pointer">
+                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                </li>
+              </ul>
             </div>
-            <div class="grid grid-flow-col grid-rows-3">
-              <div v-for="nav in navigations" class="mb-2 ">
-                <NuxtLink :to="nav.slug" class="font-medium leading-6 bg-[length:0_100%] hover:bg-[length:100%_100%] bg-no-repeat bg-gradient-to-b from-transparent from-95% via-[#ffffff33] via-95% to-[#ffffff33] transition-all">{{ nav.title }}</NuxtLink>
+            <div>
+              <h3>Navigation</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li v-for="nav in navigations" :key="nav.id">
+                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 xl:mt-0">
+            <form>
+              <div>
+                <div>
+                  <div class="flex items-center content-center justify-between text-base">
+                    <label for="" class="block font-semibold text-shark-700 dark:text-shark-200">Subscribe to our newsletter</label>
+                  </div>
+                  <p class="text-base text-shark-500 dark:text-shark-400">Stay updated on new releases and features, guides, and community updates.</p>
+                </div>
+                <div class="relative mt-3">
+                  <div class="relative max-w-sm">
+                    <UInput type="email" color="white" variant="outline" size="xl" placeholder="you@domain.com" />
+                    <span class="absolute inset-y-0 end-0 flex items-center px-3.5"><!--[--><button type="submit" class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-xs gap-x-1.5 px-2.5 py-1.5 shadow-sm text-white bg-grayscale-7 hover:bg-grayscale-6 disabled:bg-grayscale-7 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-reka-2 inline-flex items-center"><!--[--><!--[--><!----><!--]--><!--[--><span class="">Subscribe</span><!--]--><!--[--><!----><!--]--><!--]--></button><!--]--></span>
+                  </div>
+                </div>
               </div>
-              <div v-for="contact in contacts" class="mb-2">
-                <a href="#" class="font-medium leading-6 bg-[length:0_100%] hover:bg-[length:100%_100%] bg-no-repeat bg-gradient-to-b from-transparent from-95% via-[#ffffff33] via-95% to-[#ffffff33] transition-all">{{ contact.contact }}</a>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <div class="flex items-center gap-1 pb-20 footer-copyright">
-        <div class="flex-grow">Copyright &copy; {{ new Date().getFullYear() }} Rekaforma</div>
-        <div class="block w-10 h-10">
-          <a href="#" class="flex items-center justify-center w-full h-full text-white border border-[#ffffff33] hover:border-[#ffffff73] transition-all"><Icon name="uil:instagram-alt" size="24px" /></a>
+    </div>
+    <div class="border-t border-shark-100 dark:border-shark-900">
+      <div class="container py-8 mx-auto lg:py-4 lg:flex lg:items-center lg:justify-between lg:gap-x-3">
+        <div class="flex items-center justify-center lg:flex-1 lg:justify-end gap-x-2 lg:order-3">
+          <UiButtonInstagram />
+          <UiButtonScrollToTop />
         </div>
-        <div class="block w-10 h-10">
-          <a href="#" class="flex items-center justify-center w-full h-full text-white border border-[#ffffff33] hover:border-[#ffffff73]"><Icon name="uil:twitter" size="24px" /></a>
-        </div>
-        <div class="block w-10 h-10">
-          <button @click="scrollToTop" class="block w-full h-full bg-gray-600"><Icon name="uil:arrow-up" size="32px" /></button>
+        <div class="flex items-center justify-center mt-3 lg:mt-0 lg:order-2"></div>
+        <div class="flex items-center justify-center flex-1 mt-3 lg:justify-start lg: gap-x-2 lg:mt-0 lg:order-1">
+          <p class="text-sm">Copyright &copy; 2021-{{ new Date().getFullYear() }} Rekaforma</p>
         </div>
       </div>
     </div>
   </footer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      navigations: [
-        { id: 1, title: 'About us', slug: '/about' },
-        { id: 2, title: 'Meet the team', slug: '/about' },
-        { id: 3, title: 'Careers', slug: '/blog' },
-        { id: 4, title: 'Services', slug: '/blog' },
-        { id: 5, title: 'News & events', slug: '/blog' },
-        { id: 6, title: 'Explore our work', slug: '/blog' },
-        { id: 7, title: 'FAQs', slug: '/blog' },
-        { id: 8, title: 'Contact us', slug: '/blog' },
-        { id: 9, title: 'Support central', slug: '/blog' },
-      ],
-      contacts: [
-        { id: 1, contact: 'P: 1900 1088' },
-        { id: 1, contact: 'E: info@rekaforma.xyz' },
-        { id: 1, contact: 'A: Banda Aceh, IDN' }
-      ]
-    }
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }
-  }
-}
-</script>
-
-<style>
-.newsletter input:focus + button {
-  @apply bg-[#fa9f42] border-[#fa9f42]
-}
-</style>

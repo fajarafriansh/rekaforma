@@ -1,0 +1,42 @@
+query getPost($slug: String, $locales: [Locale!]!) {
+  post(
+    stage: PUBLISHED,
+    locales: $locales,
+    where: { slug: $slug }
+  ) {
+    title
+    slug
+    date
+    excerpt
+    content {
+      markdown
+    }
+    coverImage {
+      url(transformation: {image: {resize: {width: 600}}, document: {output: {format: webp}}})
+    }
+    category {
+      title
+      slug
+      coverImage {
+        url(transformation: {image: {resize: {height: 60}}, document: {output: {format: webp}}})
+      }
+    }
+    topics(orderBy: title_ASC) {
+      title
+      slug
+      coverImage {
+        url(transformation: {image: {resize: {width: 30}}, document: {output: {format: webp}}})
+      }
+    }
+    author {
+      name
+      socialProfileName
+      socialProfileUrl
+      picture {
+        url(
+          transformation: {image: {resize: {width: 60}}, document: {output: {format: webp}}}
+        )
+      }
+    }
+  }
+}

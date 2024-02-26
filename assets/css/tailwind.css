@@ -2,37 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply box-border text-base antialiased leading-normal tracking-normal bg-white font-manrope text-[#707070];
-}
-
 *,
 *::before,
 *::after {
   @apply box-border m-0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold
-}
+@layer base {
+  :root {
+    --header-height: 4rem;
+    /* --ui-background: 255 255 255;
+    --ui-foreground: var(--color-gray-700); */
+  }
 
-#footer a:hover,
-#footer .router-link-exact-active {
-  @apply text-white
-}
+  body {
+    @apply box-border antialiased bg-white dark:bg-shark-950 font-dmsans text-shark-700 dark:text-shark-100 selection:bg-primary/50
+  }
+  
+  /* h1 {
+    @apply font-bold text-xl md:text-3xl xl:text-5xl text-grayscale-8 tracking-tight !leading-tight
+  }
 
-.nav-link:hover,
-.nav-link .router-link-exact-active {
-  @apply text-black
+  h2 {
+    @apply font-bold text-xl md:text-2xl xl:text-[42px] text-grayscale-8 tracking-tight !leading-tight
+  }
+
+  h3 {
+    @apply text-sm/6 font-semibold text-grayscale-7
+  }
+
+  h4 {
+    @apply font-normal text-base xl:text-xl text-grayscale-8 tracking-normal leading-normal
+  }
+
+  h5 {
+    @apply font-medium text-lg text-grayscale-8 tracking-normal !leading-tight
+  }
+
+  .blog h1 {
+    @apply font-extrabold text-3xl md:text-3xl xl:text-5xl text-grayscale-8 tracking-tight !leading-tight
+  } */
 }
 
 @layer components {
-  .btn {
-    @apply px-3 py-2 text-sm text-white bg-blue-500 rounded-md;
+  /* .btn {
+    @apply focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-2 p-2 text-grayscale-5 hover:text-grayscale-6 hover:bg-grayscale-2 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-reka-2 inline-flex items-center
   }
+
+  .btn-lg {
+    @apply min-h-14
+  }
+  
+  .btn-sm {
+    @apply  min-h-6
+  }
+
+  .btn-wide {
+    @apply min-w-64
+  }
+
+  .btn-square {
+    @apply h-full px-0
+  }
+
+  .btn-outline {
+    @apply !bg-transparent hover:!bg-transparent border-grayscale-4 text-grayscale-4
+  }
+
+  .btn-neutral {
+    @apply border-grayscale-5 bg-grayscale-5
+  }
+
+  .btn-white {
+    @apply bg-white text-grayscale-8 border-white hover:bg-reka-2 hover:border-reka-2 hover:text-white
+  }
+
+  .btn-reka-1 {
+    @apply bg-reka-1 border-reka-1 text-white
+  }
+
+  .btn-reka-2 {
+    @apply bg-reka-2 border-reka-2 text-white
+  }
+
+  .link {
+    @apply bg-[length:0_100%] hover:bg-[length:100%_100%] bg-no-repeat bg-gradient-to-b from-transparent from-95% via-reka-2 via-95% to-reka-2 transition-all
+  }
+
+  .outline-primary {
+    outline-color: aqua;
+  }
+
+  .bg-primary {
+    background-color: rgb(251 190 112);
+  } */
 }
 
-.breakout-container {
+/* .breakout-container {
   position: relative;
   left: calc(50% - 50vw);
   width: 100vw;
@@ -45,4 +111,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
-}
+} */

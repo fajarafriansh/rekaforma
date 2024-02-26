@@ -4,12 +4,13 @@ export default defineNuxtConfig({
     shim: false
   },
   modules: [
-    '@nuxtjs/tailwindcss',
-    'nuxt-icon',
-    'vue3-carousel-nuxt',
+    '@nuxt/ui',
+    'nuxt-graphql-client',
+    '@nuxt-alt/markdown-it',
+    '@nuxtjs/i18n',
     ['@nuxtjs/google-fonts', {
       families: {
-        'Manrope': '400..800',
+        'DM Sans': '400..800',
         download: true,
         inject: true
       },
@@ -30,5 +31,44 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
     },
-  }
+  },
+  runtimeConfig: {
+    public: {
+      'graphql-client': {
+        clients: {
+          blog: process.env.HYGRAPH_BLOG_ENDPOINT,
+          website: process.env.HYGRAPH_WEB_ENDPOINT
+        }
+      }
+    }
+  },
+  colorMode: {
+    preference: 'light'
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'EN',
+        iso: 'en-GB',
+        file: 'en.ts'
+      },
+      {
+        code: 'id',
+        name: 'ID',
+        iso: 'id-ID',
+        file: 'id.ts'
+      }
+    ],
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: "i18n",
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: false,
+    // skipSettingLocaleOnNavigate: true,
+    vueI18n: "./i18n.config.ts",
+  },
+  // routeRules: {
+  //   "/": { redirect: "/en" },
+  // },
 })

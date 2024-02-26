@@ -1,0 +1,10 @@
+query getPeople {
+  people(stage: PUBLISHED) {
+    name
+    photo {
+      url(
+        transformation: {document: {output: {format: webp}}, image: {resize: {height: 200}}}
+      )
+    }
+  }
+}
