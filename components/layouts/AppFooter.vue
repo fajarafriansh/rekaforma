@@ -4,10 +4,16 @@ import { navigations } from '~/store/navigations'
 
 const localePath = useLocalePath()
 
-const contacts = ref([
-  { id: 1, contact: 'P: 1900 1088' },
-  { id: 1, contact: 'E: info@rekaforma.xyz' },
-  { id: 1, contact: 'A: Banda Aceh, IDN' }
+const enterprise = ref([
+  { menu: 'footer.enterprise.support', slug: '/' },
+  { menu: 'footer.enterprise.career', slug: '/' },
+  { menu: 'footer.enterprise.clients', slug: '/' }
+])
+
+const site_policies = ref([
+  { menu: 'footer.site_policies.site_policy', slug: '/' },
+  { menu: 'footer.site_policies.social_media_policy', slug: '/' },
+  { menu: 'footer.site_policies.disclaimer', slug: '/' }
 ])
 </script>
 
@@ -18,26 +24,26 @@ const contacts = ref([
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="grid-flow-col gap-8 flex-flex-col lg:grid auto-cols-fr xl:col-span-2">
             <div>
-              <h3>Navigation</h3>
+              <h3 class="font-semibold text-sm/6 text-shark-900 dark:text-white">{{ $t('footer.navigations') }}</h3>
               <ul role="list" class="mt-6 space-y-4">
-                <li v-for="nav in navigations" :key="nav.id" class="cursor-pointer">
-                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                <li v-for="nav in navigations" class="cursor-pointer">
+                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ $t(nav.title) }}</ULink>
                 </li>
               </ul>
             </div>
             <div>
-              <h3>Navigation</h3>
+              <h3 class="font-semibold text-sm/6 text-shark-900 dark:text-white">{{ $t('footer.enterprise.enterprise') }}</h3>
               <ul role="list" class="mt-6 space-y-4">
-                <li v-for="nav in navigations" :key="nav.id" class="cursor-pointer">
-                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                <li v-for="menu in enterprise" class="cursor-pointer">
+                  <ULink :to="localePath(menu.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ $t(menu.menu) }}</ULink>
                 </li>
               </ul>
             </div>
             <div>
-              <h3>Navigation</h3>
+              <h3 class="font-semibold text-sm/6 text-shark-900 dark:text-white">{{ $t('footer.site_policies.site_policies') }}</h3>
               <ul role="list" class="mt-6 space-y-4">
-                <li v-for="nav in navigations" :key="nav.id">
-                  <ULink :to="localePath(nav.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ nav.title }}</ULink>
+                <li v-for="menu in site_policies">
+                  <ULink :to="localePath(menu.slug)" class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50">{{ $t(menu.menu) }}</ULink>
                 </li>
               </ul>
             </div>
@@ -47,9 +53,9 @@ const contacts = ref([
               <div>
                 <div>
                   <div class="flex items-center content-center justify-between text-base">
-                    <label for="" class="block font-semibold text-shark-700 dark:text-shark-200">Subscribe to our newsletter</label>
+                    <label for="" class="block font-semibold text-shark-700 dark:text-shark-200">{{ $t('footer.newsletter.title') }}</label>
                   </div>
-                  <p class="text-base text-shark-500 dark:text-shark-400">Stay updated on new releases and features, guides, and community updates.</p>
+                  <p class="text-base text-shark-500 dark:text-shark-400">{{ $t('footer.newsletter.description') }}</p>
                 </div>
                 <div class="relative mt-3">
                   <div class="relative max-w-sm">

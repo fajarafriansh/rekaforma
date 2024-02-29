@@ -1,12 +1,7 @@
 <template>
-  <LayoutsAppNavigation />
-
   <main class="relative">
     <slot />
   </main>
-
-  <!-- <LayoutsAppGalery /> -->
-  <LayoutsAppFooter />
 </template>
 
 <style>

@@ -21,8 +21,7 @@ const option : GetPostQueryVariables = {
   locales: locales
 }
 
-const res = await GqlGetPost(option)
-const data = res.post
+const data = await useGQLQuery("get_post" ,option)
 // const author = data?.author?.socialProfileUrl?.split('/')[1]
 </script>
 

@@ -1,13 +1,11 @@
-<script setup>
+<script setup lang="ts">
 const localePath = useLocalePath()
 </script>
 
 <template>
-  <UiSectionContainerCol>
-    <template #title>Who We Are</template>
-    <template #description>
-      We love Vue Single-File Components as much as you do. Simple, intuitive and powerful, Nuxt lets you write Vue components in a way that makes sense. Every repetitive task is automated, so you can focus on writing your full-stack Vue application with confidence.
-    </template>
+  <UiSectionContainer col description action>
+    <template #title>{{ $t('home.about.title') }}</template>
+    <template #description>{{ $t('home.about.description') }}</template>
     <template #action>
       <UButton
         :to="localePath('/about')"
@@ -15,7 +13,7 @@ const localePath = useLocalePath()
         size="md"
         color="primary"
         variant="solid"
-        label="Learn more about us"
+        :label="$t('home.about.actions.learn_more_about_us')"
         :trailing="false"
         class="transition-all"
       />
@@ -24,7 +22,7 @@ const localePath = useLocalePath()
         size="md"
         color="gray"
         variant="solid"
-        label="Our Team"
+        :label="$t('home.about.actions.our_team')"
         :trailing="false"
         class="transition-all"
       />
@@ -34,5 +32,5 @@ const localePath = useLocalePath()
         <img src="/img5.jpg" alt="" class="object-cover w-full h-full shadow-lg rounded-xl">
       </div>
     </template>
-  </UiSectionContainerCol>
+  </UiSectionContainer>
 </template>

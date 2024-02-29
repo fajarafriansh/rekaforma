@@ -9,41 +9,24 @@ const props = defineProps({
   title: {
     type: String,
   },
-  excerpt: {
+  location: {
     type: String,
-    default: null
-  },
-  date: {
-    type: String,
+    default: 'Banda Aceh, Indonesia'
   },
   coverImageUrl: {
     type: String,
   },
-  categoryName: {
-    type: String,
-  },
-  authorName: {
-    type: String,
-  },
-  authorPictureUrl: {
-    type: String,
-  }
 })
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${props.slug}`" class="flex flex-col justify-between overflow-hidden transition-all bg-white shadow dark:bg-shark-900 rounded-xl ring-1 ring-shark-200 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-shark-800 hover:bg-gray-100/50 dark:hover:bg-shark-900/50 group">
-    <div class="">
-      <img :src="props.coverImageUrl" :alt="props.title" class="object-cover w-full h-96">
-    </div>
-    <div class="flex-1 p-6">
-      <p class="flex items-center text-lg font-semibold line-clamp-2 text-shark-900 dark:text-shark-100">{{ props.title }}</p>
-      <p class="mt-1 text-sm text-shark-500 dark:text-shark-400 line-clamp-2">{{ props.excerpt }}</p>
-    </div>
-    <div class="p-6 pt-0">
-      <div class="flex items-center justify-between gap-3">
-        <time class="text-sm text-shark-500 dark:text-shark-400">{{ formatDate(new Date(props.date), "D MMMM YYYY") }}</time>
-      </div>
+  <NuxtLink :to="props.slug" class="relative flex overflow-hidden transition-all rounded-xl ring-1 ring-shark-200 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-shark-800 group">
+    <img :src="props.coverImageUrl" :alt="props.title" class="object-cover w-full transition-transform duration-200 scale-100 h-[500px] group-hover:scale-105">
+    <div class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end w-full h-full p-6 bg-gradient-to-t from-gray-950/85 to-50%">
+      <p class="text-xl font-semibold text-white line-clamp-2">{{ props.title }}</p>
+      <p class="mt-1 text-sm tracking-tight text-gray-100">
+        {{ props.location }}
+      </p>
     </div>
   </NuxtLink>
 </template>

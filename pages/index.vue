@@ -2,6 +2,7 @@
   <SectionsHomeHero />
   <SectionsHomeAbout />
   <SectionsHomeExpertise />
+  <SectionsHomeProject />
   <SectionsHomeNews />
   
 </template>

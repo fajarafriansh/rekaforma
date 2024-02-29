@@ -25,17 +25,10 @@ const localePath = useLocalePath()
         </li>
       </ul>
       <div class="flex items-center justify-end gap-1 lg:flex-1">
-        <UTooltip :text="$t('nav.tooltip.search')" :shortcuts="['⌘', 'K']">
-          <UButton
-            icon="i-heroicons-magnifying-glass-20-solid"
-            color="gray"
-            variant="ghost"
-            aria-label="Search"
-          />
-        </UTooltip>
-        <UiButtonLangSwitcher />
+        <AppSearchPallet />
         <UiButtonColorMode />
         <UiButtonInstagram />
+        <UiButtonLangSwitcher />
         <UiMobileMenu class="flex lg:hidden" />
       </div>
     </nav>

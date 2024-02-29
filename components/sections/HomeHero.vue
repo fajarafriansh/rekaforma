@@ -1,10 +1,16 @@
 <script setup lang="ts">
-const items = [
-  { title: 'The City’s Green Center is an “Urban Farm”Shanghai', location: 'Greenland Center, China', image: 'hero1.png', slug:'/' },
-  { title: 'Reminiscent of a wooden vessel floating in the bayside landscape', location: 'Ariake Gymnastics Centre, Japan', image: 'hero2.png', slug:'/' },
-  { title: 'The City’s Green Center is an “Urban Farm”Shanghai', location: 'Greenland Center, China', image: 'hero3.png', slug:'/' },
-  { title: 'Reminiscent of a wooden vessel floating in the bayside landscape', location: 'Ariake Gymnastics Centre, Japan', image: 'hero4.png', slug:'/' },
-]
+import type { FeaturedProjectsQueryVariables } from '#gql'
+
+const localePath = useLocalePath()
+const { locale } = useI18n()
+const locales: string[] = [locale.value]
+
+const option : FeaturedProjectsQueryVariables = {
+  first: 3,
+  locales: locales
+}
+
+const projects = await useGQLQuery("featured_projects" ,option)
 
 const carouselRef = ref()
 
@@ -24,25 +30,24 @@ onMounted(() => {
 <template>
   <UCarousel
     ref="carouselRef"
-    v-slot="{ item, index }"
-    :items="items"
+    v-slot="{ item }"
+    :items="projects"
     :ui="{ item: 'basis-full' }"
     class="overflow-hidden max-h-[calc(100vh-var(--header-height))]"
     indicators
   >
-    <div class="h-[calc(100vh-var(--header-height))] w-full">
-      <img :src="item.image" :alt="item.name" class="absolute top-0 object-cover w-full h-full -z-10" draggable="false">
-      <div class="relative h-full py-24 sm:py-32 md:py-40 md:pb-24 bg-gradient-to-b from-gray-950/0 to-gray-950/85">
-        <div class="container flex flex-col justify-end h-full mx-auto">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            {{ item.title }}
-          </h2>
-          <p class="mt-6 text-lg tracking-tight text-gray-100">
-            {{ item.location }}
-          </p>
-        </div>
-
-      </div>
-    </div>
+    <UiHeroContainer
+      :image-url="item?.node.coverImage?.url"
+    >
+      <NuxtLink
+        :to="localePath(`/projects/${item?.node.slug}`)"
+        class="flex flex-col group/herolink"
+      >
+        <UiHeroText
+          :title="item?.node.title"
+          :subtitle="item?.node.projectInformation?.projectLocation"
+        />
+      </NuxtLink>
+    </UiHeroContainer>
   </UCarousel>
 </template>

@@ -4,39 +4,37 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Blog Post Single - Rekaforma'
+  title: 'Project Single - Rekaforma'
 })
 
-import type { GetPostQueryVariables } from '#gql'
-import { formatDate } from '@vueuse/core';
+import type { GetProjectQueryVariables } from '#gql'
 
-const { slug } = useRoute().params as GetPostQueryVariables
+// const localePath = useLocalePath()
+const { locale } = useI18n()
+const locales: string[] = [locale.value]
 
-const option : GetPostQueryVariables = {
-  slug: slug
+const { slug } = useRoute().params as GetProjectQueryVariables
+
+const option : GetProjectQueryVariables = {
+  slug: slug,
+  locales: locales
 }
 
-const res = await GqlGetPost(option)
-const data = res.post
+const data = await useGQLQuery("get_project" ,option)
 </script>
 
 <template>
+  <UiHeroContainer :image-url="data?.coverImage?.url">
+    <UiHeroText
+      :title="data?.title"
+      :subtitle="data?.projectInformation?.projectLocation"
+    />
+  </UiHeroContainer>
   <div class="container mx-auto">
-    <SectionsPostHeader>
-      <template #date>{{ formatDate(new Date(data?.date), "D MMMM YYYY") }}</template>
-      <template #title>{{ data?.title }}</template>
-    </SectionsPostHeader>
-    <div class="pb-24 xl:grid xl:grid-cols-4 xl:gap-x-10">
-      <div class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-shark-100 xl:dark:border-shark-900">
-        <div class="flex justify-center xl:block gap-x-8 sm:gap-x-12 xl:gap-x-0 xl:gap-y-8">
-          <div class="flex items-center gap-x-2">
-            <img :src="data?.author?.picture?.url" alt="author image" class="w-10 h-10 rounded-full">
-            <div class="text-sm font-medium leading-5 whitespace-nowrap">
-              <span>{{ data?.author?.name }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    
+    <div class="max-w-3xl mx-auto">
+      <!-- <div v-html="$md.render(data?.content.markdown)" class="pb-24 mt-12 prose dark:prose-dark">
+      </div> -->
     </div>
   </div>
 </template>

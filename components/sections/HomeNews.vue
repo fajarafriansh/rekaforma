@@ -2,10 +2,10 @@
 </script>
     
 <template>
-  <UiSectionContainerRow>
-    <template #title>Latest News</template>
+  <UiSectionContainer>
+    <template #title>{{ $t('home.news.title') }}</template>
     <template #content>
       <SectionsArticlesList :per-page="3" />
     </template>
-  </UiSectionContainerRow>
+  </UiSectionContainer>
 </template>

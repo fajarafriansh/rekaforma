@@ -1,0 +1,23 @@
+query Projects($first: Int, $locales: [Locale!]!) {
+  projectsConnection(
+    stage: PUBLISHED
+    orderBy: publishedAt_DESC
+    first: $first
+    locales: $locales
+  ) {
+    edges {
+      node {
+        title
+        slug
+        coverImage {
+          url(
+            transformation: {document: {output: {format: webp}}, image: {resize: {height: 600}}}
+          )
+        }
+        projectInformation {
+          projectLocation
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+query getProject($slug: String, $locales: [Locale!]!) {
+  project(
+    stage: PUBLISHED,
+    locales: $locales,
+    where: { slug: $slug }
+  ) {
+    title
+    coverImage {
+      url(
+        transformation: {image: {resize: {height: 1000}}, document: {output: {format: webp}}}
+      )
+    }
+    projectInformation {
+      client
+      projectLocation
+    }
+  }
+}
