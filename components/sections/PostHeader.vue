@@ -10,9 +10,9 @@
           <slot name="date">default date</slot>
         </time>
       </dd>
-      <p class="text-3xl font-bold !leading-tight tracking-tight md:text-4xl lg:text-5xl text-shark-900 dark:text-white">
+      <h1 class="text-3xl font-bold !leading-tight tracking-tight md:text-4xl text-gray-900 dark:text-white">
         <slot name="title"> default header </slot>
-      </p>
+      </h1>
       <div>
         <slot name="author"> default header </slot>
       </div>

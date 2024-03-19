@@ -1,5 +1,8 @@
-query getPeople {
-  people(stage: PUBLISHED) {
+query getPeople($locales: [Locale!]!) {
+  people(
+    stage: PUBLISHED,
+    locales: $locales,
+  ) {
     name
     photo {
       url(

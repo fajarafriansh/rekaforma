@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="container flex flex-col justify-end h-full mx-auto">
+  <div class="flex flex-col justify-end h-full">
     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl !leading-tight group-hover/herolink:text-primary">
       {{ props.title }}
     </h2>

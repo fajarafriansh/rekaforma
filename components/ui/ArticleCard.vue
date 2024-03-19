@@ -1,6 +1,4 @@
 <script setup>
-import { formatDate } from '@vueuse/core'
-
 const props = defineProps({
   slug: {
     type: String,
@@ -48,7 +46,7 @@ const props = defineProps({
     </div>
     <div class="p-6 pt-0">
       <div class="flex items-center justify-between gap-3">
-        <time class="text-sm text-shark-500 dark:text-shark-400">{{ formatDate(new Date(props.date), "D MMMM YYYY") }}</time>
+        <time class="text-sm text-shark-500 dark:text-shark-400">{{ $d(Date.parse(props.date), "short") }}</time>
         <div class="inline-flex flex-row-reverse justify-end">
           <a :href="`https://${props.authorProfileUrl}`" class="relative inline-flex items-center justify-center flex-shrink-0 w-6 h-6 text-xs transition-all rounded-full ring-2 ring-shark-50 dark:ring-shark-900 -me-1 first:me-0 lg:hover:scale-110 lg:hover:ring-primary-500 dark:lg:hover:ring-primary-400" target="_blank">
             <UAvatar

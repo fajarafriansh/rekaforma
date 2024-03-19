@@ -10,7 +10,7 @@ const props = defineProps({
 
 const localePath = useLocalePath()
 const { locale } = useI18n()
-const locales: string[] = [locale.value]
+const locales: String[] = [locale.value]
 
 const option : ProjectsQueryVariables = {
   first: props.perPage,

@@ -24,17 +24,39 @@ const data = await useGQLQuery("get_project" ,option)
 </script>
 
 <template>
-  <UiHeroContainer :image-url="data?.coverImage?.url">
-    <UiHeroText
-      :title="data?.title"
-      :subtitle="data?.projectInformation?.projectLocation"
-    />
-  </UiHeroContainer>
-  <div class="container mx-auto">
-    
-    <div class="max-w-3xl mx-auto">
-      <!-- <div v-html="$md.render(data?.content.markdown)" class="pb-24 mt-12 prose dark:prose-dark">
-      </div> -->
+  <div>
+    <div class="max-h-[calc(100vh-var(--header-height))] relative">
+      <UiHeroContainer :image-url="data?.coverImage?.url">
+        <UiHeroText
+          :title="data?.title"
+          :subtitle="data?.projectInformation?.projectLocation"
+        />
+      </UiHeroContainer>
     </div>
+    <div class="py-24 sm:py-32">
+      <div class="container flex flex-col gap-20 mx-auto lg:flex-row">
+        <div class="lg:w-2/3">
+          <p class="text-gray-700 text-base/7 dark:text-gray-100">
+            {{ data?.description }}
+          </p>
+        </div>
+        <UiProjectInfo class="lg:w-1/3"
+          :client="data?.projectInformation?.client"
+          :location="data?.projectInformation?.projectLocation"
+          :start="data?.projectInformation?.startDate"
+          :completion="data?.projectInformation?.endDate"
+          :site-area="data?.projectInformation?.siteArea"
+          :floor-area="data?.projectInformation?.floorArea"
+          :services="data?.projectInformation?.services"
+        />
+      </div>
+    </div>
+    <div v-if="data?.projectGallery" class="py-24 bg-gray-50/50 dark:bg-gray-900 sm:py-32">
+      <div class="container mx-auto">
+        <UiProjectGallery :image-urls="data?.projectGallery.image" />
+      </div>
+
+    </div>
+
   </div>
 </template>

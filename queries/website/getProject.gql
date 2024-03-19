@@ -5,6 +5,7 @@ query getProject($slug: String, $locales: [Locale!]!) {
     where: { slug: $slug }
   ) {
     title
+    description
     coverImage {
       url(
         transformation: {image: {resize: {height: 1000}}, document: {output: {format: webp}}}
@@ -13,6 +14,18 @@ query getProject($slug: String, $locales: [Locale!]!) {
     projectInformation {
       client
       projectLocation
+      startDate
+      endDate
+      siteArea
+      floorArea
+      services
+    }
+    projectGallery {
+      image {
+        url(
+          transformation: {document: {output: {format: webp}}, image: {resize: {height: 1000}}}
+        )
+      }
     }
   }
 }

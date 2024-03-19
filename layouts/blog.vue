@@ -9,7 +9,7 @@ const htmlAttrs = computed(() => head.value.htmlAttrs!)
 <template>
   <Html :lang="htmlAttrs.lang">
     <Body>    
-      <main class="relative min-h-[calc(100vh-var(--header-height))]">
+      <main class="relative">
         <slot />
       </main>
     </Body>

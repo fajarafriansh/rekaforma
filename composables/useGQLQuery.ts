@@ -5,11 +5,12 @@ import type {
   ProjectsQueryVariables,
   FeaturedProjectsQueryVariables,
   GetProjectQueryVariables,
+  GetPeopleQueryVariables,
 } from '#gql'
 
 export async function useGQLQuery(
-  which: "articles" | "get_post" | "categories" | "projects" | "featured_projects" | "get_project",
-  properties: ArticlesQueryVariables | GetPostQueryVariables | CategoriesQueryVariables | ProjectsQueryVariables | FeaturedProjectsQueryVariables | GetProjectQueryVariables
+  which: "articles" | "get_post" | "categories" | "projects" | "featured_projects" | "get_project" | "get_people",
+  properties: ArticlesQueryVariables | GetPostQueryVariables | CategoriesQueryVariables | ProjectsQueryVariables | FeaturedProjectsQueryVariables | GetProjectQueryVariables | GetPeopleQueryVariables
 ) {
   let data: any
 
@@ -36,6 +37,11 @@ export async function useGQLQuery(
   if (which === 'get_project') {
     const res = await GqlGetProject(<GetProjectQueryVariables>properties)
     data = { get_project: res.project }
+  }
+
+  if (which === 'get_people') {
+    const res = await GqlGetProject(<GetPeopleQueryVariables>properties)
+    data = { get_people: res.people }
   }
 
   return data[which]

@@ -1,7 +1,7 @@
 query Projects($first: Int, $locales: [Locale!]!) {
   projectsConnection(
     stage: PUBLISHED
-    orderBy: publishedAt_DESC
+    orderBy: createdAt_DESC
     first: $first
     locales: $locales
   ) {
