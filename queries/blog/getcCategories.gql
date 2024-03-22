@@ -3,7 +3,12 @@ query Categories {
     title
     slug
     coverImage {
-      url(transformation: {image: {resize: {width: 200}}, document: {output: {format: webp}}})
+      url(
+        transformation: {
+          image: { resize: { width: 200 } }
+          document: { output: { format: webp } }
+        }
+      )
     }
   }
 }

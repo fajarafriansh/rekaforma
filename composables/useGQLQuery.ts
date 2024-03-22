@@ -6,43 +6,57 @@ import type {
   FeaturedProjectsQueryVariables,
   GetProjectQueryVariables,
   GetPeopleQueryVariables,
-} from '#gql'
+} from "#gql";
 
 export async function useGQLQuery(
-  which: "articles" | "get_post" | "categories" | "projects" | "featured_projects" | "get_project" | "get_people",
-  properties: ArticlesQueryVariables | GetPostQueryVariables | CategoriesQueryVariables | ProjectsQueryVariables | FeaturedProjectsQueryVariables | GetProjectQueryVariables | GetPeopleQueryVariables
+  which:
+    | "articles"
+    | "get_post"
+    | "categories"
+    | "projects"
+    | "featured_projects"
+    | "get_project"
+    | "get_people",
+  properties:
+    | ArticlesQueryVariables
+    | GetPostQueryVariables
+    | CategoriesQueryVariables
+    | ProjectsQueryVariables
+    | FeaturedProjectsQueryVariables
+    | GetProjectQueryVariables
+    | GetPeopleQueryVariables
 ) {
-  let data: any
+  let data: any;
 
-  if (which === 'articles') {
-    const res = await GqlArticles(<ArticlesQueryVariables>properties)
-    data = { articles: res.postsConnection?.edges }
+  if (which === "articles") {
+    const res = await GqlArticles(<ArticlesQueryVariables>properties);
+    data = { articles: res.postsConnection?.edges };
   }
 
-  if (which === 'get_post') {
-    const res = await GqlGetPost(<GetPostQueryVariables>properties)
-    data = { get_post: res.post }
+  if (which === "get_post") {
+    const res = await GqlGetPost(<GetPostQueryVariables>properties);
+    data = { get_post: res.post };
   }
 
-  if (which === 'projects') {
-    const res = await GqlProjects(<ProjectsQueryVariables>properties)
-    data = { projects: res.projectsConnection?.edges }
+  if (which === "projects") {
+    const res = await GqlProjects(<ProjectsQueryVariables>properties);
+    data = { projects: res.projectsConnection?.edges };
   }
 
-  if (which === 'featured_projects') {
-    const res = await GqlFeaturedProjects(<ProjectsQueryVariables>properties)
-    data = { featured_projects: res.projectsConnection?.edges }
+  if (which === "featured_projects") {
+    const res = await GqlFeaturedProjects(<ProjectsQueryVariables>properties);
+    data = { featured_projects: res.projectsConnection?.edges };
   }
 
-  if (which === 'get_project') {
-    const res = await GqlGetProject(<GetProjectQueryVariables>properties)
-    data = { get_project: res.project }
+  if (which === "get_project") {
+    const res = await GqlGetProject(<GetProjectQueryVariables>properties);
+    data = { get_project: res.project };
   }
 
-  if (which === 'get_people') {
-    const res = await GqlGetProject(<GetPeopleQueryVariables>properties)
-    data = { get_people: res.people }
+  if (which === "get_people") {
+    const res = await GqlGetPeople(<GetPeopleQueryVariables>properties);
+    data = { get_people: res.people };
   }
 
-  return data[which]
+  return data[which];
 }

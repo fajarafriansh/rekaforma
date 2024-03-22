@@ -1,8 +1,8 @@
 query Articles($first: Int, $locales: [Locale!]!) {
   postsConnection(
-    stage: PUBLISHED,
-    orderBy: date_DESC,
-    first: $first,
+    stage: PUBLISHED
+    orderBy: date_DESC
+    first: $first
     locales: $locales
   ) {
     edges {
@@ -16,7 +16,10 @@ query Articles($first: Int, $locales: [Locale!]!) {
         publishedAt
         coverImage {
           url(
-            transformation: {image: {resize: {width: 600}}, document: {output: {format: webp}}}
+            transformation: {
+              image: { resize: { width: 600 } }
+              document: { output: { format: webp } }
+            }
           )
         }
         category {
@@ -28,7 +31,10 @@ query Articles($first: Int, $locales: [Locale!]!) {
           socialProfileUrl
           picture {
             url(
-              transformation: {image: {resize: {width: 60}}, document: {output: {format: webp}}}
+              transformation: {
+                image: { resize: { width: 60 } }
+                document: { output: { format: webp } }
+              }
             )
           }
         }

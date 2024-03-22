@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { ArticlesQueryVariables } from '#gql'
+import type { ArticlesQueryVariables } from "#gql";
 
 const props = defineProps({
   perPage: {
     type: Number,
-    default: 1
-  }
-})
+    default: 1,
+  },
+});
 
-const localePath = useLocalePath()
-const { locale } = useI18n()
-const locales: string[] = [locale.value]
+const localePath = useLocalePath();
+const { locale } = useI18n();
+const locales: string[] = [locale.value];
 
-const option : ArticlesQueryVariables = {
+const option: ArticlesQueryVariables = {
   first: props.perPage,
-  locales: locales
-}
+  locales: locales,
+};
 
-const articles = await useGQLQuery("articles" ,option)
+const articles = await useGQLQuery("articles", option);
 </script>
 
 <template>

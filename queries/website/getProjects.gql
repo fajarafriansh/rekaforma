@@ -11,7 +11,10 @@ query Projects($first: Int, $locales: [Locale!]!) {
         slug
         coverImage {
           url(
-            transformation: {document: {output: {format: webp}}, image: {resize: {height: 600}}}
+            transformation: {
+              document: { output: { format: webp } }
+              image: { resize: { height: 600 } }
+            }
           )
         }
         projectInformation {

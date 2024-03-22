@@ -1,15 +1,22 @@
 <script setup>
-import { navigations } from '~/store/navigations'
+import { navigations } from "~/store/navigations";
 
-const localePath = useLocalePath()
+const localePath = useLocalePath();
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 -mb-px border-b bg-white/75 dark:bg-shark-950/80 backdrop-blur lg:mb-0 border-shark-100 dark:border-shark-800 lg:border-0">
-    <nav class="container flex items-center justify-between w-full h-[--header-height] mx-auto">
+  <header
+    class="sticky top-0 z-50 -mb-px border-b bg-white/75 dark:bg-shark-950/80 backdrop-blur lg:mb-0 border-shark-100 dark:border-shark-800 lg:border-0"
+  >
+    <nav
+      class="container flex items-center justify-between w-full h-[--header-height] mx-auto"
+    >
       <div class="flex items-center lg:flex-1">
-        <NuxtLink to="/" class="flex items-end flex-shrink-0 text-xl font-bold text-grayscale-7">
-          <img class="h-6 lg:h-7 logo" src="~/assets/logo-1.png" alt="">
+        <NuxtLink
+          to="/"
+          class="flex items-end flex-shrink-0 text-xl font-bold text-grayscale-7"
+        >
+          <img class="h-6 lg:h-7 logo" src="~/assets/logo-1.png" alt="" />
         </NuxtLink>
       </div>
       <ul class="items-center hidden lg:flex gap-x-8">
@@ -35,5 +42,4 @@ const localePath = useLocalePath()
   </header>
 </template>
 
-<style>
-</style>
+<style></style>

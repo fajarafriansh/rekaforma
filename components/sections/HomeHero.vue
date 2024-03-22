@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import type { FeaturedProjectsQueryVariables } from '#gql'
+import type { FeaturedProjectsQueryVariables } from "#gql";
 
-const localePath = useLocalePath()
-const { locale } = useI18n()
-const locales: string[] = [locale.value]
+const localePath = useLocalePath();
+const { locale } = useI18n();
+const locales: string[] = [locale.value];
 
-const option : FeaturedProjectsQueryVariables = {
+const option: FeaturedProjectsQueryVariables = {
   first: 3,
-  locales: locales
-}
+  locales: locales,
+};
 
-const projects = await useGQLQuery("featured_projects" ,option)
+const projects = await useGQLQuery("featured_projects", option);
 
-const carouselRef = ref()
+const carouselRef = ref();
 
 onMounted(() => {
   setInterval(() => {
-    if (!carouselRef.value) return
+    if (!carouselRef.value) return;
 
     if (carouselRef.value.page === carouselRef.value.pages) {
-      return carouselRef.value.select(0)
+      return carouselRef.value.select(0);
     }
 
-    carouselRef.value.next()
-  }, 10000)
-})
+    carouselRef.value.next();
+  }, 10000);
+});
 </script>
 
 <template>
@@ -36,9 +36,7 @@ onMounted(() => {
     class="overflow-hidden max-h-[calc(100vh-var(--header-height))]"
     indicators
   >
-    <UiHeroContainer
-      :image-url="item?.node.coverImage?.url"
-    >
+    <UiHeroContainer :image-url="item?.node.coverImage?.url">
       <NuxtLink
         :to="localePath(`/projects/${item?.node.slug}`)"
         class="flex flex-col group/herolink"

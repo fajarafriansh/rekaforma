@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { navigations } from '~/store/navigations'
+import { navigations } from "~/store/navigations";
 
-const isOpen = ref(false)
-const localePath = useLocalePath()
+const isOpen = ref(false);
+const localePath = useLocalePath();
 </script>
 
 <template>
@@ -14,10 +14,17 @@ const localePath = useLocalePath()
       color="gray"
       variant="ghost"
     >
-    <Icon name="ph:list" size="20px" />
+      <Icon name="ph:list" size="20px" />
     </UButton>
 
-    <USlideover v-model="isOpen" :ui="{ base: 'flex-none w-80 xl:w-full', overlay: { background: 'dark:bg-gray-700/85' }, width: 'max-w-md w-80' }">
+    <USlideover
+      v-model="isOpen"
+      :ui="{
+        base: 'flex-none w-80 xl:w-full',
+        overlay: { background: 'dark:bg-gray-700/85' },
+        width: 'max-w-md w-80',
+      }"
+    >
       <div class="flex-col flex-1 p-10 flex-">
         <div class="flex items-center justify-end">
           <UButton
@@ -27,7 +34,7 @@ const localePath = useLocalePath()
             color="black"
             variant="solid"
           >
-          <Icon name="uil:times" size="20px" />
+            <Icon name="uil:times" size="20px" />
           </UButton>
         </div>
         <ul class="mt-10">
@@ -46,4 +53,3 @@ const localePath = useLocalePath()
     </USlideover>
   </div>
 </template>
-

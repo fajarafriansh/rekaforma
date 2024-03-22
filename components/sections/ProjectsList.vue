@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { ProjectsQueryVariables } from '#gql'
+import type { ProjectsQueryVariables } from "#gql";
 
 const props = defineProps({
   perPage: {
     type: Number,
-    default: 1
-  }
-})
+    default: 1,
+  },
+});
 
-const localePath = useLocalePath()
-const { locale } = useI18n()
-const locales: String[] = [locale.value]
+const localePath = useLocalePath();
+const { locale } = useI18n();
+const locales: String[] = [locale.value];
 
-const option : ProjectsQueryVariables = {
+const option: ProjectsQueryVariables = {
   first: props.perPage,
-  locales: locales
-}
+  locales: locales,
+};
 
-const projects = await useGQLQuery("projects", option)
+const projects = await useGQLQuery("projects", option);
 </script>
 
 <template>

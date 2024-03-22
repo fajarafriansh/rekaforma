@@ -1,5 +1,5 @@
 export const datetimeFormats = {
-  "en": {
+  en: {
     // 👇 Give a key for each format...
     short: {
       year: "numeric",
@@ -9,7 +9,7 @@ export const datetimeFormats = {
     // We can have as many formats here as
     // want e.g. long, footer_copyright, etc.
   },
-  "id": {
+  id: {
     // 👇 ...use the same keys for each locale
     short: {
       year: "numeric",
@@ -17,4 +17,4 @@ export const datetimeFormats = {
       day: "numeric",
     },
   },
-} as const // 👈 Cast to avoid TypeScript errors
+} as const; // 👈 Cast to avoid TypeScript errors

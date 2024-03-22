@@ -1,27 +1,27 @@
 <script setup lang="ts">
 const props = defineProps({
   client: {
-    type: String
+    type: String,
   },
   location: {
-    type: String
+    type: String,
   },
   start: {
-    type: String
+    type: String,
   },
   completion: {
-    type: String
+    type: String,
   },
   siteArea: {
-    type: Number
+    type: Number,
   },
   floorArea: {
-    type: Number
+    type: Number,
   },
   services: {
-    type: Array
-  }
-})
+    type: Array,
+  },
+});
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const props = defineProps({
     </div>
     <div v-if="props.start || $props.completion">
       <dt>Start / Completion</dt>
-      <dd>{{ props.start }} / </dd>
+      <dd>{{ props.start }} /</dd>
     </div>
     <div v-if="props.siteArea">
       <dt>Site Area</dt>
@@ -57,7 +57,7 @@ const props = defineProps({
 
 <style>
 .project__info dt {
-  @apply font-semibold text-gray-900 dark:text-white
+  @apply font-semibold text-gray-900 dark:text-white;
 }
 
 .project__info dd span:after {

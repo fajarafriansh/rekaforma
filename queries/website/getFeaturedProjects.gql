@@ -4,7 +4,9 @@ query FeaturedProjects($first: Int, $locales: [Locale!]!) {
     orderBy: publishedAt_DESC
     first: $first
     locales: $locales
-    where: {categories_some: {title_in: ["Featured Projects", "Proyek Unggulan"]}}
+    where: {
+      categories_some: { title_in: ["Featured Projects", "Proyek Unggulan"] }
+    }
   ) {
     edges {
       node {
@@ -12,7 +14,10 @@ query FeaturedProjects($first: Int, $locales: [Locale!]!) {
         slug
         coverImage {
           url(
-            transformation: {document: {output: {format: webp}}, image: {resize: {height: 1000}}}
+            transformation: {
+              document: { output: { format: webp } }
+              image: { resize: { height: 1000 } }
+            }
           )
         }
         projectInformation {

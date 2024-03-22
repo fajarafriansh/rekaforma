@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
+const localePath = useLocalePath();
 </script>
 
 <template>
   <UiSectionContainer col description action>
-    <template #title>{{ $t('home.about.title') }}</template>
-    <template #description>{{ $t('home.about.description') }}</template>
+    <template #title>{{ $t("home.about.title") }}</template>
+    <template #description>{{ $t("home.about.description") }}</template>
     <template #action>
       <UButton
         :to="localePath('/about')"
@@ -29,7 +29,11 @@ const localePath = useLocalePath()
     </template>
     <template #content>
       <div class="xl:h-[600px] h-[500px] w-full">
-        <img src="/img5.jpg" alt="" class="object-cover w-full h-full shadow-lg rounded-xl">
+        <img
+          src="/img5.jpg"
+          alt=""
+          class="object-cover w-full h-full shadow-lg rounded-xl"
+        />
       </div>
     </template>
   </UiSectionContainer>
