@@ -106,15 +106,14 @@ const site_policies = ref([
                     />
                     <span
                       class="absolute inset-y-0 end-0 flex items-center px-3.5"
-                      ><!--[--><button
-                        type="submit"
-                        class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-xs gap-x-1.5 px-2.5 py-1.5 shadow-sm text-white bg-grayscale-7 hover:bg-grayscale-6 disabled:bg-grayscale-7 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-reka-2 inline-flex items-center"
-                      >
-                        <!--[--><!--[--><!----><!--]--><!--[--><span class=""
-                          >Subscribe</span
-                        ><!--]--><!--[--><!----><!--]--><!--]--></button
-                      ><!--]--></span
                     >
+                      <UButton
+                        color="black"
+                        variant="solid"
+                        size="xs"
+                        label="Subscribe"
+                      />
+                    </span>
                   </div>
                 </div>
               </div>

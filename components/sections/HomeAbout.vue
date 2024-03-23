@@ -5,7 +5,11 @@ const localePath = useLocalePath();
 <template>
   <UiSectionContainer col description action>
     <template #title>{{ $t("home.about.title") }}</template>
-    <template #description>{{ $t("home.about.description") }}</template>
+    <template #description>
+      <p>
+        {{ $t("home.about.description") }}
+      </p>
+    </template>
     <template #action>
       <UButton
         :to="localePath('/about')"

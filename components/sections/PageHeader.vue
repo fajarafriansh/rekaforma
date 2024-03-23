@@ -9,9 +9,9 @@
         >
           <slot name="title"> default header </slot>
         </p>
-        <p class="mt-4 text-lg text-shark-500 dark:text-shark-300">
+        <div class="mt-4 text-lg text-shark-500 dark:text-shark-300">
           <slot name="subtitle"> default subtitle </slot>
-        </p>
+        </div>
       </div>
     </div>
   </div>

@@ -116,5 +116,10 @@ export default {
       title: "Team Kami",
     },
   },
+  contact: {
+    title: "Hubungi Kami",
+    description:
+      "Our international team of more than 200 people bring together creativity, multi disciplinary skills and the latest thinking in design-led technology to make a difference to the built environment and the communities it serves.",
+  },
   // ...all other id-ID translations
 };

@@ -33,9 +33,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink
-    :to="props.slug"
-    class="flex flex-col justify-between overflow-hidden transition-all bg-white shadow dark:bg-shark-900 rounded-xl ring-1 ring-shark-100 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-shark-800 hover:bg-gray-50/50 dark:hover:bg-shark-900/50 group"
+  <div
+    class="relative flex flex-col justify-between overflow-hidden transition-all bg-white shadow dark:bg-shark-900 rounded-xl ring-1 ring-shark-100 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-shark-800 hover:bg-gray-50/50 dark:hover:bg-shark-900/50 group"
   >
     <div class="">
       <img
@@ -45,6 +44,14 @@ const props = defineProps({
       />
     </div>
     <div class="flex-1 p-6">
+      <NuxtLink
+        :to="props.slug"
+        class="focus:outline-none"
+        :aria-label="props.title"
+        tabindex="-1"
+      >
+        <span class="absolute inset-0" aria-hidden="true"></span>
+      </NuxtLink>
       <div class="flex mb-6">
         <UBadge color="primary" variant="subtle">
           {{ props.categoryName }}
@@ -62,7 +69,7 @@ const props = defineProps({
     <div class="p-6 pt-0">
       <div class="flex items-center justify-between gap-3">
         <time class="text-sm text-shark-500 dark:text-shark-400">
-          {{ $d(Date.parse(props.date), "short") }}
+          {{ $d(Date.parse(props.date!), "short") }}
         </time>
         <div class="inline-flex flex-row-reverse justify-end">
           <a
@@ -79,5 +86,5 @@ const props = defineProps({
         </div>
       </div>
     </div>
-  </NuxtLink>
+  </div>
 </template>

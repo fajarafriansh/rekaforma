@@ -40,12 +40,12 @@ const props = defineProps({
         >
           <slot name="title"> default header </slot>
         </h2>
-        <p
+        <div
           v-if="description"
           class="mt-6 text-gray-600 text-lg/8 dark:text-gray-300"
         >
           <slot name="description"> default description </slot>
-        </p>
+        </div>
         <div v-if="action" class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
           <slot name="action"> default action </slot>
         </div>
