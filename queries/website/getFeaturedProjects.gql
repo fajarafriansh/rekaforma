@@ -1,0 +1,29 @@
+query FeaturedProjects($first: Int, $locales: [Locale!]!) {
+  projectsConnection(
+    stage: PUBLISHED
+    orderBy: publishedAt_DESC
+    first: $first
+    locales: $locales
+    where: {
+      categories_some: { title_in: ["Featured Projects", "Proyek Unggulan"] }
+    }
+  ) {
+    edges {
+      node {
+        title
+        slug
+        coverImage {
+          url(
+            transformation: {
+              document: { output: { format: webp } }
+              image: { resize: { height: 1000 } }
+            }
+          )
+        }
+        projectInformation {
+          projectLocation
+        }
+      }
+    }
+  }
+}

@@ -1,21 +1,17 @@
-<template>
-  <div>
-    <header>
-      <h1>This is blog layout</h1>
-    </header>
-  </div>
-  <div>
-    <slot />
-  </div>
+<script setup lang="ts">
+const head = useLocaleHead({
+  addSeoAttributes: true,
+});
 
-  <div>
-    <footer>
-      <nav>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/about">About</NuxtLink>
-        <NuxtLink to="/blog">Blog</NuxtLink>
-      </nav>
-      <h1>This is footer</h1>
-    </footer>
-  </div>
+const htmlAttrs = computed(() => head.value.htmlAttrs!);
+</script>
+
+<template>
+  <Html :lang="htmlAttrs.lang">
+    <Body>
+      <main class="relative">
+        <slot />
+      </main>
+    </Body>
+  </Html>
 </template>

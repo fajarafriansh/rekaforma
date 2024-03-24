@@ -1,0 +1,14 @@
+query getPeople($locales: [Locale!]!) {
+  people(stage: PUBLISHED, locales: $locales) {
+    name
+    role
+    photo {
+      url(
+        transformation: {
+          document: { output: { format: webp } }
+          image: { resize: { height: 200 } }
+        }
+      )
+    }
+  }
+}

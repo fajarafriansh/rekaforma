@@ -2,47 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply box-border text-base antialiased leading-normal tracking-normal bg-white font-manrope text-[#707070];
-}
-
 *,
 *::before,
 *::after {
   @apply box-border m-0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold
+.prose {
+  --tw-prose-body: rgb(var(--color-gray-700));
+  --tw-prose-headings: rgb(var(--color-gray-900));
+  --tw-prose-lead: rgb(var(--color-gray-600));
+  --tw-prose-links: rgb(var(--color-primary-500));
+  --tw-prose-bold: rgb(var(--color-gray-900));
+  --tw-prose-counters: rgb(var(--color-gray-500));
+  --tw-prose-bullets: rgb(var(--color-gray-300));
+  --tw-prose-hr: rgb(var(--color-gray-200));
+  --tw-prose-quotes: rgb(var(--color-gray-900));
+  --tw-prose-quote-borders: rgb(var(--color-gray-200));
+  --tw-prose-captions: rgb(var(--color-gray-500));
+  --tw-prose-code: rgb(var(--color-gray-900));
+  --tw-prose-pre-code: rgb(var(--color-gray-900));
+  --tw-prose-pre-bg: rgb(var(--color-gray-50));
+  --tw-prose-pre-border: rgb(var(--color-gray-200));
+  --tw-prose-th-borders: rgb(var(--color-gray-300));
+  --tw-prose-td-borders: rgb(var(--color-gray-200));
+  --tw-prose-invert-body: rgb(var(--color-gray-100));
+  --tw-prose-invert-headings: #fff;
+  --tw-prose-invert-lead: rgb(var(--color-gray-400));
+  --tw-prose-invert-links: rgb(var(--color-primary-400));
+  --tw-prose-invert-bold: #fff;
+  --tw-prose-invert-counters: rgb(var(--color-gray-400));
+  --tw-prose-invert-bullets: rgb(var(--color-gray-600));
+  --tw-prose-invert-hr: rgb(var(--color-gray-800));
+  --tw-prose-invert-quotes: rgb(var(--color-gray-100));
+  --tw-prose-invert-quote-borders: rgb(var(--color-gray-700));
+  --tw-prose-invert-captions: rgb(var(--color-gray-400));
+  --tw-prose-invert-code: #fff;
+  --tw-prose-invert-pre-code: #fff;
+  --tw-prose-invert-pre-bg: rgb(var(--color-gray-800));
+  --tw-prose-invert-pre-border: rgb(var(--color-gray-700));
+  --tw-prose-invert-th-borders: rgb(var(--color-gray-700));
+  --tw-prose-invert-td-borders: rgb(var(--color-gray-800));
 }
 
-#footer a:hover,
-#footer .router-link-exact-active {
-  @apply text-white
-}
+@layer base {
+  :root {
+    --header-height: 4rem;
+    /* --ui-background: 255 255 255;
+    --ui-foreground: var(--color-gray-700); */
+  }
 
-.nav-link:hover,
-.nav-link .router-link-exact-active {
-  @apply text-black
-}
-
-@layer components {
-  .btn {
-    @apply px-3 py-2 text-sm text-white bg-blue-500 rounded-md;
+  body {
+    @apply box-border antialiased bg-white dark:bg-shark-950 font-dmsans text-shark-700 dark:text-shark-100 selection:bg-primary/50;
   }
 }
 
-.breakout-container {
-  position: relative;
-  left: calc(50% - 50vw);
-  width: 100vw;
-}
+@layer components {
+  .h1 {
+    @apply text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl;
+  }
 
-.hide-scroll-bar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+  .h2 {
+    @apply text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl;
+  }
 
-.hide-scroll-bar::-webkit-scrollbar {
-  display: none;
+  .h3 {
+    @apply font-semibold text-gray-900 text-sm/6 dark:text-white;
+  }
 }

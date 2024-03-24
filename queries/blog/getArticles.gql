@@ -1,0 +1,49 @@
+query Articles($first: Int, $locales: [Locale!]!) {
+  postsConnection(
+    stage: PUBLISHED
+    orderBy: date_DESC
+    first: $first
+    locales: $locales
+  ) {
+    edges {
+      cursor
+      node {
+        id
+        title
+        slug
+        excerpt
+        date
+        publishedAt
+        coverImage {
+          url(
+            transformation: {
+              image: { resize: { width: 600 } }
+              document: { output: { format: webp } }
+            }
+          )
+        }
+        category {
+          title
+          slug
+        }
+        author {
+          name
+          socialProfileUrl
+          picture {
+            url(
+              transformation: {
+                image: { resize: { width: 60 } }
+                document: { output: { format: webp } }
+              }
+            )
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      pageSize
+    }
+  }
+}

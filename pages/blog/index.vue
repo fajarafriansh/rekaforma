@@ -1,20 +1,24 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: "blog",
+});
+
+useHead({
+  title: "Blog Post - Rekaforma",
+});
+</script>
+
 <template>
-  <div class="grid grid-cols-4 gap-5">
-    <NuxtLink to="/blog/abc">Error test</NuxtLink>
-    <div v-for="product in products">
-      <ArticleCard :product="product" />
+  <div class="container mx-auto">
+    <SectionsPageHeader>
+      <template #title>{{ $t("blog.title") }}</template>
+      <template #subtitle>
+        Read the latest news about all Nuxt solutions, from framework
+        announcements to integration tutorials.
+      </template>
+    </SectionsPageHeader>
+    <div class="pb-24 mt-8">
+      <SectionsArticlesList :per-page="12" />
     </div>
   </div>
 </template>
-
-<script setup>
-  definePageMeta({
-    layout: 'blog'
-  })
-
-  const { data: products } = await useFetch('https://fakestoreapi.com/products')
-
-  useHead({
-    title: 'Blog Post - Rekaforma'
-  })
-</script>
