@@ -1,5 +1,15 @@
+<script setup>
+definePageMeta({
+  layout: "homepage",
+});
+
+useHead({
+  title: "About Us - Rekaforma",
+});
+</script>
+
 <template>
-  <section>
-    <p>This page will be displayed at the /about route.</p>
-  </section>
+  <div>
+    <SectionsTeam />
+  </div>
 </template>
