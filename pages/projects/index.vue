@@ -1,10 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-});
-
 useHead({
-  title: "Projects - Rekaforma",
+  title: "Projects",
 });
 </script>
 

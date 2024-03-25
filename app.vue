@@ -1,3 +1,12 @@
+<script setup lang="ts">
+useHead({
+  // titleTemplate: "%s - Rekaforma",
+  titleTemplate: (title) => {
+    return title ? `${title} - Rekaforma` : "Rekaforma";
+  },
+});
+</script>
+
 <template>
   <div>
     <NuxtLoadingIndicator

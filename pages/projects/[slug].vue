@@ -1,12 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-});
-
-useHead({
-  title: "Project Single - Rekaforma",
-});
-
 import type { GetProjectQueryVariables } from "#gql";
 
 // const localePath = useLocalePath()
@@ -21,6 +13,13 @@ const option: GetProjectQueryVariables = {
 };
 
 const data = await useGQLQuery("get_project", option);
+
+if (!data) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Project not found",
+  });
+}
 </script>
 
 <template>

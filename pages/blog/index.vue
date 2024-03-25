@@ -1,10 +1,7 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-});
-
-useHead({
-  title: "Blog Post - Rekaforma",
+useSeoMeta({
+  title: "Blog Post",
+  ogTitle: "The Blog Post",
 });
 </script>
 

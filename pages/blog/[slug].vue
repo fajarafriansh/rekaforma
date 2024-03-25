@@ -1,12 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-});
-
-useHead({
-  title: "Blog Post Single - Rekaforma",
-});
-
 import type { GetPostQueryVariables } from "#gql";
 
 // const localePath = useLocalePath()
@@ -21,14 +13,44 @@ const option: GetPostQueryVariables = {
 };
 
 const data = await useGQLQuery("get_post", option);
+
+if (!data) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Article not found",
+  });
+}
+
 // const author = data?.author?.socialProfileUrl?.split('/')[1]
+
+const title = data?.title;
+const description = data?.excerpt;
+const coverImageUrl = data?.coverImage?.url;
+const date = data?.date;
+const authorName = data?.author?.name;
+const authorPictureUrl = data?.author?.picture?.url;
+const authorSocialProfileUrl = data?.author?.socialProfileUrl!;
+const authorSocialProfileName = data?.author?.socialProfileName;
+
+useSeoMeta({
+  title: () => title,
+  description: () => description,
+  ogTitle: () => title,
+  ogDescription: () => description,
+  ogImage: () => coverImageUrl,
+  ogImageUrl: () => coverImageUrl,
+  twitterCard: () => "summary_large_image",
+  twitterTitle: () => title,
+  twitterDescription: () => description,
+  twitterImage: () => coverImageUrl,
+});
 </script>
 
 <template>
   <div class="container mx-auto">
     <SectionsPostHeader>
-      <template #date>{{ $d(Date.parse(data?.date), "short") }}</template>
-      <template #title>{{ data?.title }}</template>
+      <template #date>{{ $d(Date.parse(date), "short") }}</template>
+      <template #title>{{ title }}</template>
       <template #author>
         <div class="flex items-center justify-center">
           <div class="pt-6">
@@ -37,20 +59,20 @@ const data = await useGQLQuery("get_post", option);
             >
               <div class="flex items-center gap-x-2">
                 <img
-                  :src="data?.author?.picture?.url"
+                  :src="authorPictureUrl"
                   alt="author image"
                   class="w-10 h-10 rounded-full"
                 />
                 <div
                   class="text-sm font-medium leading-5 text-start whitespace-nowrap"
                 >
-                  <div>{{ data?.author?.name }}</div>
+                  <div>{{ authorName }}</div>
                   <div>
                     <a
-                      :href="data?.author?.socialProfileUrl!"
+                      :href="authorSocialProfileUrl"
                       class="hover:text-primary"
                     >
-                      {{ data?.author?.socialProfileName }}
+                      {{ authorSocialProfileName }}
                     </a>
                   </div>
                 </div>

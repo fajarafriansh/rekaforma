@@ -1,12 +1,4 @@
-<script setup>
-definePageMeta({
-  layout: "homepage",
-});
-
-useHead({
-  title: "Rekaforma",
-});
-</script>
+<script setup></script>
 
 <template>
   <SectionsHomeHero />
