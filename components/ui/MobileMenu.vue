@@ -41,6 +41,7 @@ const localePath = useLocalePath();
           <li v-for="nav in navigations" class="mb-4 ralative">
             <ULink
               :to="localePath(nav.slug)"
+              @click="isOpen = false"
               active-class="text-primary"
               inactive-class="hover:text-primary"
               class="font-semibold text-base/10"

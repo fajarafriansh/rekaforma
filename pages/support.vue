@@ -1,9 +1,3 @@
-<script setup>
-definePageMeta({
-  layout: 'homepage'
-})
-</script>
+<script setup></script>
 
-<template>
-
-</template>
+<template></template>

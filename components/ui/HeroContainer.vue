@@ -20,7 +20,7 @@ const props = defineProps({
   <div class="h-[calc(100vh-var(--header-height))] w-full">
     <img
       :src="props.imageUrl"
-      :alt="props.imageUrl"
+      :alt="props.title"
       class="absolute top-0 object-cover w-full h-full -z-10"
       draggable="false"
     />

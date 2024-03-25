@@ -1,12 +1,17 @@
-<template>
-  <main class="container mx-auto">
-    <slot />
-  </main>
-</template>
+<script setup lang="ts">
+const head = useLocaleHead({
+  addSeoAttributes: true,
+});
 
-<style>
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-</style>
+const htmlAttrs = computed(() => head.value.htmlAttrs!);
+</script>
+
+<template>
+  <Html :lang="htmlAttrs.lang">
+    <Body>
+      <main class="relative min-h-[calc(100vh-var(--header-height))]">
+        <slot />
+      </main>
+    </Body>
+  </Html>
+</template>

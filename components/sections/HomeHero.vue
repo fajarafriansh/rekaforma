@@ -36,7 +36,10 @@ onMounted(() => {
     class="overflow-hidden max-h-[calc(100vh-var(--header-height))]"
     indicators
   >
-    <UiHeroContainer :image-url="item?.node.coverImage?.url">
+    <UiHeroContainer
+      :image-url="item?.node.coverImage?.url"
+      :title="item?.node.title"
+    >
       <NuxtLink
         :to="localePath(`/projects/${item?.node.slug}`)"
         class="flex flex-col group/herolink"
