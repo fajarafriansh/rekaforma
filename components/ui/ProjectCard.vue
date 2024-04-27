@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
   <NuxtLink
     :to="props.slug"
-    class="relative flex overflow-hidden transition-all rounded-xl ring-1 ring-shark-200 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-shark-800 group"
+    class="relative flex overflow-hidden transition-all rounded-xl ring-1 ring-gray-200 hover:ring-2 hover:ring-primary-500 dark:hover:ring-primary-400 dark:ring-gray-800 group"
   >
     <img
       :src="props.coverImageUrl"

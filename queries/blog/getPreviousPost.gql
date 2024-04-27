@@ -1,0 +1,40 @@
+query PreviousPost($cursor: String, $locales: [Locale!]!) {
+  posts(
+    stage: PUBLISHED
+    orderBy: date_ASC
+    locales: $locales
+    before: $cursor
+    last: 1
+  ) {
+    id
+    title
+    slug
+    excerpt
+    date
+    publishedAt
+    coverImage {
+      url(
+        transformation: {
+          image: { resize: { width: 600 } }
+          document: { output: { format: webp } }
+        }
+      )
+    }
+    category {
+      title
+      slug
+    }
+    author {
+      name
+      socialProfileUrl
+      picture {
+        url(
+          transformation: {
+            image: { resize: { width: 60 } }
+            document: { output: { format: webp } }
+          }
+        )
+      }
+    }
+  }
+}

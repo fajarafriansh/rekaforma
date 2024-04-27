@@ -1,5 +1,6 @@
 query getPost($slug: String, $locales: [Locale!]!) {
   post(stage: PUBLISHED, locales: $locales, where: { slug: $slug }) {
+    id
     title
     slug
     date

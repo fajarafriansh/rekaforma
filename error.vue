@@ -6,6 +6,10 @@ const handleError = () => {
     redirect: "/",
   });
 };
+
+useSeoMeta({
+  title: "Page not found",
+});
 </script>
 
 <template>

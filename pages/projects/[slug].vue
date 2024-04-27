@@ -20,14 +20,30 @@ if (!data) {
     statusMessage: "Project not found",
   });
 }
+
+const title = data?.title;
+const description = data?.description;
+const coverImageUrl = data?.coverImage?.url;
+
+useSeoMeta({
+  title: () => title,
+  description: () => description,
+  ogTitle: () => title,
+  ogDescription: () => description,
+  ogImage: () => coverImageUrl,
+  twitterCard: () => "summary_large_image",
+  twitterTitle: () => title,
+  twitterDescription: () => description,
+  twitterImage: () => coverImageUrl,
+});
 </script>
 
 <template>
   <div>
     <div class="max-h-[calc(100vh-var(--header-height))] relative">
-      <UiHeroContainer :image-url="data?.coverImage?.url">
+      <UiHeroContainer :image-url="coverImageUrl">
         <UiHeroText
-          :title="data?.title"
+          :title="title"
           :subtitle="data?.projectInformation?.projectLocation"
         />
       </UiHeroContainer>
@@ -36,7 +52,7 @@ if (!data) {
       <div class="container flex flex-col gap-20 mx-auto lg:flex-row">
         <div class="lg:w-2/3">
           <p class="text-gray-700 text-base/7 dark:text-gray-100">
-            {{ data?.description }}
+            {{ description }}
           </p>
         </div>
         <UiProjectInfo

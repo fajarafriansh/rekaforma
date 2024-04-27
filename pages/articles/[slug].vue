@@ -38,7 +38,6 @@ useSeoMeta({
   ogTitle: () => title,
   ogDescription: () => description,
   ogImage: () => coverImageUrl,
-  ogImageUrl: () => coverImageUrl,
   twitterCard: () => "summary_large_image",
   twitterTitle: () => title,
   twitterDescription: () => description,
@@ -47,7 +46,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="container mx-auto">
+  <div class="container pb-24 mx-auto">
     <SectionsPostHeader>
       <template #date>{{ $d(Date.parse(date), "short") }}</template>
       <template #title>{{ title }}</template>
@@ -82,12 +81,13 @@ useSeoMeta({
         </div>
       </template>
     </SectionsPostHeader>
-    <div class="max-w-3xl mx-auto blog">
-      <div
-        v-html="$md.render(data?.content.markdown)"
-        class="w-full pb-24 mx-auto mt-12 prose dark:prose-invert"
-      ></div>
+    <div
+      class="w-full max-w-3xl pb-24 mx-auto mt-12 prose blog dark:prose-invert"
+    >
+      <div v-html="$md.render(data?.content.markdown)"></div>
+      <hr />
     </div>
+    <SectionsPostRelated :cursor="data?.id" />
   </div>
 </template>
 
