@@ -1,9 +1,9 @@
 <script></script>
 
 <template>
-  <div class="py-8 border-b md:py-16 border-shark-100 dark:border-shark-900">
+  <div class="py-8 border-b md:py-16 border-gray-100 dark:border-gray-900">
     <div class="space-y-1 text-center">
-      <dd class="text-base text-shark-500 dark:text-shark-300">
+      <dd class="text-base text-gray-500 dark:text-gray-300">
         <time datetime="">
           <slot name="date">default date</slot>
         </time>

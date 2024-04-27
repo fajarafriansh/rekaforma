@@ -19,23 +19,21 @@ const site_policies = ref([
 
 <template>
   <footer id="footer" class="relative">
-    <div class="border-t border-shark-100 dark:border-shark-900">
+    <div class="border-t border-gray-100 dark:border-gray-900">
       <div class="container py-8 mx-auto lg:py-12">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div
             class="grid-flow-col gap-8 flex-flex-col lg:grid auto-cols-fr xl:col-span-2"
           >
             <div>
-              <h3
-                class="font-semibold text-sm/6 text-shark-900 dark:text-white"
-              >
+              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
                 {{ $t("footer.navigations") }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="nav in navigations" class="cursor-pointer">
                   <ULink
                     :to="localePath(nav.slug)"
-                    class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50"
+                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
                   >
                     {{ $t(nav.title) }}
                   </ULink>
@@ -43,16 +41,14 @@ const site_policies = ref([
               </ul>
             </div>
             <div>
-              <h3
-                class="font-semibold text-sm/6 text-shark-900 dark:text-white"
-              >
+              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
                 {{ $t("footer.enterprise.enterprise") }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="menu in enterprise" class="cursor-pointer">
                   <ULink
                     :to="localePath(menu.slug)"
-                    class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50"
+                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
                   >
                     {{ $t(menu.menu) }}
                   </ULink>
@@ -60,16 +56,14 @@ const site_policies = ref([
               </ul>
             </div>
             <div>
-              <h3
-                class="font-semibold text-sm/6 text-shark-900 dark:text-white"
-              >
+              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
                 {{ $t("footer.site_policies.site_policies") }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="menu in site_policies">
                   <ULink
                     :to="localePath(menu.slug)"
-                    class="text-sm text-shark-600 dark:text-shark-300 hover:text-shark-900 dark:hover:text-shark-50"
+                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
                   >
                     {{ $t(menu.menu) }}
                   </ULink>
@@ -86,12 +80,12 @@ const site_policies = ref([
                   >
                     <label
                       for=""
-                      class="block font-semibold text-shark-700 dark:text-shark-200"
+                      class="block font-semibold text-gray-700 dark:text-gray-200"
                     >
                       {{ $t("footer.newsletter.title") }}
                     </label>
                   </div>
-                  <p class="text-base text-shark-500 dark:text-shark-400">
+                  <p class="text-base text-gray-500 dark:text-gray-400">
                     {{ $t("footer.newsletter.description") }}
                   </p>
                 </div>
@@ -122,7 +116,7 @@ const site_policies = ref([
         </div>
       </div>
     </div>
-    <div class="border-t border-shark-100 dark:border-shark-900">
+    <div class="border-t border-gray-100 dark:border-gray-900">
       <div
         class="container py-8 mx-auto lg:py-4 lg:flex lg:items-center lg:justify-between lg:gap-x-3"
       >

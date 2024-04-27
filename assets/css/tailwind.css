@@ -53,7 +53,7 @@
   }
 
   body {
-    @apply box-border antialiased bg-white dark:bg-shark-950 font-dmsans text-shark-700 dark:text-shark-100 selection:bg-primary/50;
+    @apply box-border antialiased text-gray-700 bg-white dark:bg-gray-950 font-dmsans dark:text-gray-100 selection:bg-primary/50;
   }
 }
 

@@ -1,6 +1,8 @@
 import type {
   ArticlesQueryVariables,
   GetPostQueryVariables,
+  NextPostQueryVariables,
+  PreviousePostQueryVariables,
   CategoriesQueryVariables,
   ProjectsQueryVariables,
   FeaturedProjectsQueryVariables,
@@ -12,6 +14,8 @@ export async function useGQLQuery(
   which:
     | "articles"
     | "get_post"
+    | "next_post"
+    | "prev_post"
     | "categories"
     | "projects"
     | "featured_projects"
@@ -20,6 +24,8 @@ export async function useGQLQuery(
   properties:
     | ArticlesQueryVariables
     | GetPostQueryVariables
+    | NextPostQueryVariables
+    | PreviousePostQueryVariables
     | CategoriesQueryVariables
     | ProjectsQueryVariables
     | FeaturedProjectsQueryVariables
@@ -36,6 +42,16 @@ export async function useGQLQuery(
   if (which === "get_post") {
     const res = await GqlGetPost(<GetPostQueryVariables>properties);
     data = { get_post: res.post };
+  }
+
+  if (which === "next_post") {
+    const res = await GqlNextPost(<NextPostQueryVariables>properties);
+    data = { next_post: res.posts };
+  }
+
+  if (which === "prev_post") {
+    const res = await GqlPreviousPost(<PreviousePostQueryVariables>properties);
+    data = { prev_post: res.posts };
   }
 
   if (which === "projects") {

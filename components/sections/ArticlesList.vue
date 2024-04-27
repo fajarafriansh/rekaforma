@@ -25,7 +25,7 @@ const articles = await useGQLQuery("articles", option);
     <UiArticleCard
       v-for="article in articles"
       :key="article?.cursor"
-      :slug="localePath(`/blog/${article?.node.slug}`)"
+      :slug="localePath(`/articles/${article?.node.slug}`)"
       :title="article?.node.title"
       :date="article?.node.date"
       :excerpt="article?.node.excerpt!"
