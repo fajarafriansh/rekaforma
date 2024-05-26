@@ -56,6 +56,7 @@ onMounted(() => {
         <div class="relative w-full xl:h-[600px] h-[500px]">
           <img
             :src="item?.node.coverImage?.url"
+            :alt="item?.node.title"
             class="absolute top-0 object-cover w-full h-full -z-10"
             draggable="false"
           />

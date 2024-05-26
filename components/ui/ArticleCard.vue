@@ -39,7 +39,7 @@ const props = defineProps({
     <div class="">
       <img
         :src="props.coverImageUrl"
-        alt="Article image cover"
+        :alt="props.title"
         class="object-cover w-full h-48"
       />
     </div>

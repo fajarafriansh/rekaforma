@@ -35,7 +35,7 @@ const localePath = useLocalePath();
       <div class="xl:h-[600px] h-[500px] w-full">
         <img
           src="/img5.jpg"
-          alt=""
+          alt="Rekaforma"
           class="object-cover w-full h-full shadow-lg rounded-xl"
         />
       </div>
