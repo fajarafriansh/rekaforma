@@ -18,7 +18,7 @@ const localePath = useLocalePath();
         >
           <img
             class="h-6 lg:h-7 logo"
-            src="~/assets/logo-1.png"
+            src="~/assets/logo3.png"
             alt="Rekaforma Logo"
           />
         </NuxtLink>
