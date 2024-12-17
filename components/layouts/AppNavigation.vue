@@ -12,16 +12,7 @@ const localePath = useLocalePath();
       class="container flex items-center justify-between w-full h-[--header-height] mx-auto"
     >
       <div class="flex items-center lg:flex-1">
-        <NuxtLink
-          to="/"
-          class="flex items-end flex-shrink-0 text-xl font-bold text-grayscale-7"
-        >
-          <img
-            class="h-6 lg:h-7 logo"
-            src="~/assets/logo3.png"
-            alt="Rekaforma Logo"
-          />
-        </NuxtLink>
+        <UiLogo />
       </div>
       <ul class="items-center hidden lg:flex gap-x-8">
         <li v-for="nav in navigations" class="ralative">
@@ -36,7 +27,7 @@ const localePath = useLocalePath();
         </li>
       </ul>
       <div class="flex items-center justify-end gap-1 lg:flex-1">
-        <UiButtonLangSwitcher2 class="mr-4" />
+        <UiButtonLangSwitcher2 class="hidden mr-4 lg:block" />
         <AppSearchPallet />
         <UiButtonColorMode />
         <UiButtonInstagram />
@@ -45,5 +36,3 @@ const localePath = useLocalePath();
     </nav>
   </header>
 </template>
-
-<style></style>

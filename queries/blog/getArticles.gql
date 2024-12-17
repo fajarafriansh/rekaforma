@@ -1,8 +1,9 @@
-query Articles($first: Int, $locales: [Locale!]!) {
+query Articles($first: Int, $after: String, $locales: [Locale!]!) {
   postsConnection(
     stage: PUBLISHED
     orderBy: date_DESC
     first: $first
+    after: $after
     locales: $locales
   ) {
     edges {
@@ -44,6 +45,7 @@ query Articles($first: Int, $locales: [Locale!]!) {
       hasNextPage
       hasPreviousPage
       pageSize
+      endCursor
     }
   }
 }
