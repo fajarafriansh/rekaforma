@@ -2,7 +2,7 @@ import type {
   ArticlesQueryVariables,
   GetPostQueryVariables,
   NextPostQueryVariables,
-  PreviousePostQueryVariables,
+  PreviousPostQueryVariables,
   CategoriesQueryVariables,
   ProjectsQueryVariables,
   FeaturedProjectsQueryVariables,
@@ -25,7 +25,7 @@ export async function useGQLQuery(
     | ArticlesQueryVariables
     | GetPostQueryVariables
     | NextPostQueryVariables
-    | PreviousePostQueryVariables
+    | PreviousPostQueryVariables
     | CategoriesQueryVariables
     | ProjectsQueryVariables
     | FeaturedProjectsQueryVariables
@@ -50,7 +50,7 @@ export async function useGQLQuery(
   }
 
   if (which === "prev_post") {
-    const res = await GqlPreviousPost(<PreviousePostQueryVariables>properties);
+    const res = await GqlPreviousPost(<PreviousPostQueryVariables>properties);
     data = { prev_post: res.posts };
   }
 

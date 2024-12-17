@@ -26,7 +26,8 @@ const localePath = useLocalePath();
       }"
     >
       <div class="flex-col flex-1 p-10 flex-">
-        <div class="flex items-center justify-end">
+        <div class="flex items-center justify-between">
+          <UiButtonLangSwitcher2 />
           <UButton
             label="Close"
             @click="isOpen = false"
