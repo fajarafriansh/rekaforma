@@ -16,6 +16,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  actionBottom: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -51,6 +55,9 @@ const props = defineProps({
         </div>
       </div>
       <slot name="content"> default content </slot>
+      <div v-if="actionBottom" class="flex flex-col items-center -mt-8">
+        <slot name="action-bottom"> default action </slot>
+      </div>
     </div>
   </div>
 </template>

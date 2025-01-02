@@ -8,6 +8,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.2.2",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/uil": "^1.2.3",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "^3.14.1592",
     "nuxt-icon": "^0.6.10"

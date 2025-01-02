@@ -25,7 +25,7 @@ const props = defineProps({
       draggable="false"
     />
     <div
-      class="relative h-full py-24 sm:py-32 md:py-40 md:pb-24 bg-gradient-to-t from-gray-950/85"
+      class="relative h-full py-24 sm:py-32 md:py-40 md:pb-24 bg-gradient-to-t from-black/90 to-60%"
     >
       <div class="container flex flex-col justify-end h-full mx-auto">
         <slot />

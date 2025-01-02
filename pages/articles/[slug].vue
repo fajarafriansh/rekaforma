@@ -68,7 +68,7 @@ useSeoMeta({
                   <div>{{ authorName }}</div>
                   <div>
                     <a
-                      :href="authorSocialProfileUrl"
+                      :href="`https://${authorSocialProfileUrl}`"
                       class="hover:text-primary"
                     >
                       {{ authorSocialProfileName }}
