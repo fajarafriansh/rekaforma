@@ -31,7 +31,7 @@ export default {
     newsletter: {
       title: "Berlangganan newsletter kami",
       description:
-        "Terus dapatkan informasi terbaru tentang rilis dan fitur baru, panduan, dan pembaruan komunitas.",
+        "Ikuti terus berita dan informasi proyek terbaru dari Rekaforma.",
       form: {
         email: "Email",
         email_paceholder: "kamu_at_domain.com",
@@ -104,6 +104,9 @@ export default {
     },
     news: {
       title: "Berita Terbaru",
+      actions: {
+        read_more: "Baca lebih lanjut",
+      },
     },
   },
 

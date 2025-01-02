@@ -1,7 +1,19 @@
+<script setup>
+const localePath = useLocalePath();
+
+const props = defineProps({
+  height: {
+    type: String,
+    default: "h-6 lg:h-7",
+  },
+});
+</script>
+
 <template>
-  <NuxtLink to="/" class="flex items-end flex-shrink-0">
+  <NuxtLink :to="localePath('/')" class="flex items-end flex-shrink-0">
     <svg
-      class="block w-auto h-6 text-black dark:text-white lg:h-7"
+      :class="props.height"
+      class="block w-auto text-black dark:text-white"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 540.33 120"
