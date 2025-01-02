@@ -23,49 +23,19 @@ const site_policies = ref([
       <div class="container py-8 mx-auto lg:py-12">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div
-            class="grid-flow-col gap-8 flex-flex-col lg:grid auto-cols-fr xl:col-span-2"
+            class="flex flex-col grid-flow-col gap-8 lg:grid auto-cols-fr xl:col-span-2"
           >
-            <div>
-              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
-                {{ $t("footer.navigations") }}
-              </h3>
-              <ul role="list" class="mt-6 space-y-4">
+            <div class="flex flex-col content-between justify-between">
+              <UiLogo height="h-8 lg:h-10" />
+              <ul
+                class="flex flex-row flex-wrap justify-start mt-8 gap-x-6 gap-y-3"
+              >
                 <li v-for="nav in navigations" class="cursor-pointer">
                   <ULink
                     :to="localePath(nav.slug)"
-                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
+                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
                   >
                     {{ $t(nav.title) }}
-                  </ULink>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
-                {{ $t("footer.enterprise.enterprise") }}
-              </h3>
-              <ul role="list" class="mt-6 space-y-4">
-                <li v-for="menu in enterprise" class="cursor-pointer">
-                  <ULink
-                    :to="localePath(menu.slug)"
-                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
-                  >
-                    {{ $t(menu.menu) }}
-                  </ULink>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 text-sm/6 dark:text-white">
-                {{ $t("footer.site_policies.site_policies") }}
-              </h3>
-              <ul role="list" class="mt-6 space-y-4">
-                <li v-for="menu in site_policies">
-                  <ULink
-                    :to="localePath(menu.slug)"
-                    class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50"
-                  >
-                    {{ $t(menu.menu) }}
                   </ULink>
                 </li>
               </ul>
@@ -75,16 +45,6 @@ const site_policies = ref([
             <form>
               <div>
                 <div>
-                  <div
-                    class="flex items-center content-center justify-between text-base"
-                  >
-                    <label
-                      for=""
-                      class="block font-semibold text-gray-700 dark:text-gray-200"
-                    >
-                      {{ $t("footer.newsletter.title") }}
-                    </label>
-                  </div>
                   <p class="text-base text-gray-500 dark:text-gray-400">
                     {{ $t("footer.newsletter.description") }}
                   </p>
@@ -133,7 +93,8 @@ const site_policies = ref([
           class="flex items-center justify-center flex-1 mt-3 lg:justify-start lg: gap-x-2 lg:mt-0 lg:order-1"
         >
           <p class="text-sm">
-            Copyright &copy; 2021-{{ new Date().getFullYear() }} Rekaforma
+            Legal and policies &copy; {{ new Date().getFullYear() }} Rekaforma.
+            All Rights Reserved.
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ export default {
     newsletter: {
       title: "Subscribe to our newsletter",
       description:
-        "Stay updated on new releases and features, guides, and community updates.",
+        "Stay up to date with the latest Rekaforma projects and news.",
       form: {
         email: "Email",
         email_paceholder: "you_at_domain.com",
@@ -104,6 +104,9 @@ export default {
     },
     news: {
       title: "Latest News",
+      actions: {
+        read_more: "Read more",
+      },
     },
   },
 
